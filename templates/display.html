@@ -1,10 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'starter-page.html' %}
+{% load static %}
+
+{% block content %}
+
+    <h1 class="text-center">List Of Contacts</h1>
+
+    <table class="table table-success container">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Subject</th>
+        <th>Message</th>
+        <th>Action</th>
+
+    </tr>
+
+    {% for contact in all %}
+    	<tr>
+        <td>{{ contact.name }}</td>
+        <td>{{ contact.email }}</td>
+        <td>{{ contact.subject }}</td>
+        <td>{{ contact.message }}</td>
+        <td>
+            <a href="" class="btn btn-outline-primary">Edit</a>
+            <a href="/deletecontact/{{ contact.id }}" class="btn btn-outline-danger">Delete</a>
+
+
+        </td>
+        </tr>
+    {% endfor %}
+
+    </table>
+
+{% endblock %}
