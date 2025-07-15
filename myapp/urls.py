@@ -5,8 +5,10 @@ from myapp import views
 
 urlpatterns = [
 
-    path('', views.index, name='index'),
+    path('home/', views.index, name='index'),
+    path('', views.register, name='register'),
     path('starter/', views.starter, name='starter'),
+    path('login/', views.login_view, name='login'),
     path('about/', views.about, name='about'),
     path('services/', views.services, name='services'),
     path('doctors/', views.doctors, name='doctors'),
@@ -19,4 +21,13 @@ urlpatterns = [
     path('deletecontact/<int:id>', views.deletecontact),
 
     path('edit/<int:id>', views.edit, name='edit'),
+
+    #Mpesa API URLS
+    path('pay/', views.pay, name='pay'),
+
+    path('stk/', views.stk, name='stk'),
+    path('token/', views.token, name='token'),
+    path('transactions/', views.transactions_list, name='transactions'),
+
+
 ]
